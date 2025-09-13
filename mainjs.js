@@ -14,13 +14,12 @@ const INTERPRETED_TEXT = document.getElementById("interpreted-text");
 
 const startBtn = document.getElementById("start-btn");
 const startDetectBtn = document.getElementById("start-detect-btn");
-const pauseDetectBtn = document.getElementById("pause-detect-btn");
+const pauseDetectBtn = document.getElementById("pause-detect-btn"); // Diganti dari 'stop-btn'
 const deleteBtn = document.getElementById("delete-btn");
-const stopCameraBtn = document.getElementById("stop-camera-btn");
+const stopCameraBtn = document.getElementById("stop-camera-btn"); // Tombol baru
 const interpretControls = document.getElementById("interpret-controls");
 const interpretBtn = document.getElementById("interpret-btn");
 const clearBtn = document.getElementById("clear-btn");
-const switchCameraBtn = document.getElementById("switch-camera-btn");
 
 // -------------------------------
 // Config / state
@@ -34,8 +33,6 @@ let handLandmarker = null;
 let running = false;
 let frameBuffer = [];
 let detectedWords = [];
-let availableCameras = [];
-let currentCameraIndex = 0;
 
 // prevent overlapping predict requests
 let predictPending = false;
@@ -137,39 +134,18 @@ async function initHandLandmarker() {
 }
 
 // -------------------------------
-// Camera functions
-async function getAvailableCameras() {
-  const devices = await navigator.mediaDevices.enumerateDevices();
-  availableCameras = devices.filter((device) => device.kind === "videoinput");
-  if (availableCameras.length > 1) {
-    switchCameraBtn.classList.remove("hidden");
-  } else {
-    switchCameraBtn.classList.add("hidden");
-  }
-}
-
-async function startWebcamWithDevice(deviceId) {
-  if (VIDEO.srcObject) {
-    VIDEO.srcObject.getTracks().forEach((track) => track.stop());
-  }
-  const s = await navigator.mediaDevices.getUserMedia({
-    video: { deviceId: deviceId ? { exact: deviceId } : undefined },
-  });
+// Start webcam
+async function startWebcam() {
+  const s = await navigator.mediaDevices.getUserMedia({ video: true });
   VIDEO.srcObject = s;
   await new Promise((resolve) => {
     if (VIDEO.readyState >= 2) resolve();
     else VIDEO.onloadeddata = () => resolve();
   });
-
-  const track = s.getVideoTracks()[0];
-  const facingMode = track.getSettings().facingMode;
-  if (facingMode === "user") {
-    VIDEO.classList.add("is-front-camera");
-  } else {
-    VIDEO.classList.remove("is-front-camera");
-  }
 }
 
+// -------------------------------
+// Stop webcam (fungsi baru)
 function stopWebcam() {
   running = false;
   if (VIDEO.srcObject) {
@@ -181,7 +157,6 @@ function stopWebcam() {
   pauseDetectBtn.classList.add("hidden");
   deleteBtn.classList.add("hidden");
   stopCameraBtn.classList.add("hidden");
-  switchCameraBtn.classList.add("hidden");
   interpretControls.classList.add("hidden");
 }
 
@@ -246,6 +221,7 @@ async function sendPredictRequest(seq20x128) {
       CONFIDENCE.innerText = (conf * 100).toFixed(1) + "%";
       PREDICTED_WORD.innerText = word || "-";
 
+      // Tambahkan kata ke dalam daftar jika akurasi > 70% dan kata tidak sama dengan yang terakhir
       if (
         detectedWords.length === 0 ||
         detectedWords[detectedWords.length - 1] !== word
@@ -295,18 +271,17 @@ async function requestSentence() {
 // Buttons wiring
 startBtn.addEventListener("click", async () => {
   await initHandLandmarker();
-  await getAvailableCameras();
-  await startWebcamWithDevice();
+  await startWebcam();
   startBtn.classList.add("hidden");
   startDetectBtn.classList.remove("hidden");
-  stopCameraBtn.classList.remove("hidden");
+  stopCameraBtn.classList.remove("hidden"); // Tampilkan tombol Matikan Kamera
 });
 
 startDetectBtn.addEventListener("click", () => {
   running = true;
   detectLoop();
   startDetectBtn.classList.add("hidden");
-  pauseDetectBtn.classList.remove("hidden");
+  pauseDetectBtn.classList.remove("hidden"); // Tampilkan tombol Jeda Deteksi
   deleteBtn.classList.remove("hidden");
 });
 
@@ -318,12 +293,6 @@ pauseDetectBtn.addEventListener("click", () => {
 
 stopCameraBtn.addEventListener("click", () => {
   stopWebcam();
-});
-
-switchCameraBtn.addEventListener("click", async () => {
-  currentCameraIndex = (currentCameraIndex + 1) % availableCameras.length;
-  const nextCameraId = availableCameras[currentCameraIndex].deviceId;
-  await startWebcamWithDevice(nextCameraId);
 });
 
 deleteBtn.addEventListener("click", () => {
@@ -346,7 +315,6 @@ clearBtn.addEventListener("click", () => {
   STACKED_WORDS.innerText = "-";
   INTERPRETED_TEXT.innerText = "-";
   interpretControls.classList.add("hidden");
-  switchCameraBtn.classList.add("hidden");
   console.log("Clear -> reset all");
 });
 
