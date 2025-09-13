@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GestiTalk</title>
+    <link rel="stylesheet" href="./maincss.css" />
+  </head>
+  <body>
+    <header>
+      <h1>GestiTalk</h1>
+    </header>
+
+    <div class="main-content-container">
+      <div id="camera-frame-container">
+        <video id="webcam" autoplay playsinline></video>
+      </div>
+
+      <div class="translation-grid-container">
+        <div id="translation-box">
+          <p>Predicted Word: <span id="predictedWord">-</span></p>
+          <p>Confidence: <span id="confidence">-</span></p>
+        </div>
+
+        <div class="right-column">
+          <div class="grid-item">
+            <p>Kata Terdeteksi:</p>
+            <span id="stacked-words">-</span>
+          </div>
+          <div class="grid-item">
+            <p>Hasil Interpretasi:</p>
+            <span id="interpreted-text">-</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="all-buttons-container">
+        <div class="button-container">
+          <button id="start-btn">Start Kamera</button>
+          <button id="start-detect-btn" class="hidden">Mulai Deteksi</button>
+          <button id="pause-detect-btn" class="hidden">Jeda Deteksi</button>
+          <button id="delete-btn" class="hidden">Hapus Kata</button>
+          <button id="stop-camera-btn" class="hidden">Matikan Kamera</button>
+        </div>
+
+        <div class="interpretation-container hidden" id="interpret-controls">
+          <button id="interpret-btn">Kalimat</button>
+          <button id="clear-btn">Clear</button>
+        </div>
+      </div>
+    </div>
+
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.0/vision_bundle.js"
+    ></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.11.0/dist/tf.min.js"></script>
+
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
