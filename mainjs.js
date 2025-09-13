@@ -118,25 +118,6 @@ function buildFeatFromHands(result, w, h) {
 }
 
 // -------------------------------
-// Initialize MediaPipe HandLandmarker
-async function initHandLandmarker() {
-  const vision = await FilesetResolver.forVisionTasks(
-    "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.0/wasm"
-  );
-
-  handLandmarker = await HandLandmarker.createFromOptions(vision, {
-    baseOptions: {
-      modelAssetPath:
-        "https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/1/hand_landmarker.task",
-    },
-    runningMode: "VIDEO",
-    numHands: 2,
-  });
-
-  console.log("HandLandmarker ready");
-}
-
-// -------------------------------
 // Camera functions
 // Fungsi untuk mendeteksi kamera yang tersedia
 async function getAvailableCameras() {
@@ -145,7 +126,7 @@ async function getAvailableCameras() {
   if (availableCameras.length > 1) {
     switchCameraBtn.classList.remove("hidden");
   } else {
-    switchCameraBtn.classList.add("hidden"); // Sembunyikan jika hanya ada satu kamera
+    switchCameraBtn.classList.add("hidden");
   }
 }
 
@@ -162,6 +143,14 @@ async function startWebcamWithDevice(deviceId) {
     if (VIDEO.readyState >= 2) resolve();
     else VIDEO.onloadeddata = () => resolve();
   });
+
+  const track = s.getVideoTracks()[0];
+  const facingMode = track.getSettings().facingMode;
+  if (facingMode === 'user') {
+    VIDEO.classList.add('is-front-camera');
+  } else {
+    VIDEO.classList.remove('is-front-camera');
+  }
 }
 
 // Stop webcam
