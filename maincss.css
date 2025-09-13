@@ -56,9 +56,6 @@ h1 {
   object-fit: cover;
   transform: scaleX(-1); /* Pastikan tampilan tidak cermin */
 }
-#webcam.is-front-camera {
-  transform: scaleX(-1);
-}
 
 .hidden {
   display: none;
