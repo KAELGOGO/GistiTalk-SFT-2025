@@ -1,150 +1,163 @@
 [
-  { "title": "Apa", "src": "VIDEO TUTORIAL GERAKAN/BISINDO_Apa_017.mp4" },
+  { 
+    "title": "Apa",
+    "src": "assets/VIDEO TUTORIAL GERAKAN/BISINDO_Apa_017.mp4"
+  },
   {
     "title": "Apa Kabar",
-    "src": "VIDEO TUTORIAL GERAKAN/BISINDO_Apa Kabar_009.mp4"
+    "src": "assets/VIDEO TUTORIAL GERAKAN/BISINDO_Apa Kabar_009.mp4"
   },
   {
     "title": "Bagaimana",
-    "src": "VIDEO TUTORIAL GERAKAN/BISINDO_Bagaimana_033.mp4"
+    "src": "assets/VIDEO TUTORIAL GERAKAN/BISINDO_Bagaimana_033.mp4"
   },
-  { "title": "Baik", "src": "VIDEO TUTORIAL GERAKAN/BISINDO_Baik_017.mp4" },
+  { 
+    "title": "Baik",
+    "src": "assets/VIDEO TUTORIAL GERAKAN/BISINDO_Baik_017.mp4"
+  },
   {
     "title": "Belajar",
-    "src": "VIDEO TUTORIAL GERAKAN/BISINDO_Belajar_016.mp4"
+    "src": "assets/VIDEO TUTORIAL GERAKAN/BISINDO_Belajar_016.mp4"
   },
-  { "title": "Berapa", "src": "VIDEO TUTORIAL GERAKAN/BISINDO_Berapa_010.mp4" },
+  { 
+    "title": "Berapa",
+    "src": "assets/VIDEO TUTORIAL GERAKAN/BISINDO_Berapa_010.mp4"
+  },
   {
     "title": "Berdiri",
-    "src": "VIDEO TUTORIAL GERAKAN/BISINDO_Berdiri_009.mp4"
+    "src": "assets/VIDEO TUTORIAL GERAKAN/BISINDO_Berdiri_009.mp4"
   },
   {
     "title": "Bingung",
-    "src": "VIDEO TUTORIAL GERAKAN/BISINDO_Bingung_010.mp4"
+    "src": "assets/VIDEO TUTORIAL GERAKAN/BISINDO_Bingung_010.mp4"
   },
-  { "title": "Dia", "src": "VIDEO TUTORIAL GERAKAN/BISINDO_Dia_027.mp4" },
+  { 
+    "title": "Dia",
+    "src": "assets/VIDEO TUTORIAL GERAKAN/BISINDO_Dia_027.mp4"
+  },
   {
     "title": "Dimana",
-    "src": "VIDEO TUTORIAL GERAKAN/BISINDO_Dimana_027.mp4"
+    "src": "assets/VIDEO TUTORIAL GERAKAN/BISINDO_Dimana_027.mp4"
   },
   {
     "title": "Duduk",
-    "src": "VIDEO TUTORIAL GERAKAN/BISINDO_Duduk_033.mp4"
+    "src": "assets/VIDEO TUTORIAL GERAKAN/BISINDO_Duduk_033.mp4"
   },
   {
     "title": "Halo",
-    "src": "VIDEO TUTORIAL GERAKAN/BISINDO_Halo_010.mp4"
+    "src": "assets/VIDEO TUTORIAL GERAKAN/BISINDO_Halo_010.mp4"
   },
   {
     "title": "Kalian",
-    "src": "VIDEO TUTORIAL GERAKAN/BISINDO_Kalian_012.mp4"
+    "src": "assets/VIDEO TUTORIAL GERAKAN/BISINDO_Kalian_012.mp4"
   },
   {
     "title": "Kami",
-    "src": "VIDEO TUTORIAL GERAKAN/BISINDO_Kami_017.mp4"
+    "src": "assets/VIDEO TUTORIAL GERAKAN/BISINDO_Kami_017.mp4"
   },
   {
     "title": "Kamu",
-    "src": "VIDEO TUTORIAL GERAKAN/BISINDO_Kamu_009.mp4"
+    "src": "assets/VIDEO TUTORIAL GERAKAN/BISINDO_Kamu_009.mp4"
   },
   {
     "title": "Kapan",
-    "src": "VIDEO TUTORIAL GERAKAN/BISINDO_Kapan_004.mp4"
+    "src": "assets/VIDEO TUTORIAL GERAKAN/BISINDO_Kapan_004.mp4"
   },
   {
     "title": "Kemana",
-    "src": "VIDEO TUTORIAL GERAKAN/BISINDO_Kemana_012.mp4"
+    "src": "assets/VIDEO TUTORIAL GERAKAN/BISINDO_Kemana_012.mp4"
   },
   {
     "title": "Kita",
-    "src": "VIDEO TUTORIAL GERAKAN/BISINDO_Kita_009.mp4"
+    "src": "assets/VIDEO TUTORIAL GERAKAN/BISINDO_Kita_009.mp4"
   },
   {
     "title": "Makan",
-    "src": "VIDEO TUTORIAL GERAKAN/BISINDO_Makan_016.mp4"
+    "src": "assets/VIDEO TUTORIAL GERAKAN/BISINDO_Makan_016.mp4"
   },
   {
     "title": "Mandi",
-    "src": "VIDEO TUTORIAL GERAKAN/BISINDO_Mandi_009.mp4"
+    "src": "assets/VIDEO TUTORIAL GERAKAN/BISINDO_Mandi_009.mp4"
   },
   {
     "title": "Marah",
-    "src": "VIDEO TUTORIAL GERAKAN/BISINDO_Marah_010.mp4"
+    "src": "assets/VIDEO TUTORIAL GERAKAN/BISINDO_Marah_010.mp4"
   },
   {
     "title": "Melihat",
-    "src": "VIDEO TUTORIAL GERAKAN/BISINDO_Melihat_010.mp4"
+    "src": "assets/VIDEO TUTORIAL GERAKAN/BISINDO_Melihat_010.mp4"
   },
   {
     "title": "Membaca",
-    "src": "VIDEO TUTORIAL GERAKAN/BISINDO_Membaca_027.mp4"
+    "src": "assets/VIDEO TUTORIAL GERAKAN/BISINDO_Membaca_027.mp4"
   },
   {
     "title": "Menulis",
-    "src": "VIDEO TUTORIAL GERAKAN/BISINDO_Menulis_010.mp4"
+    "src": "assets/VIDEO TUTORIAL GERAKAN/BISINDO_Menulis_010.mp4"
   },
   {
     "title": "Mereka",
-    "src": "VIDEO TUTORIAL GERAKAN/BISINDO_Mereka_010.mp4"
+    "src": "assets/VIDEO TUTORIAL GERAKAN/BISINDO_Mereka_010.mp4"
   },
   {
     "title": "Minum",
-    "src": "VIDEO TUTORIAL GERAKAN/BISINDO_Minum_009.mp4"
+    "src": "assets/VIDEO TUTORIAL GERAKAN/BISINDO_Minum_009.mp4"
   },
   {
     "title": "Pendek",
-    "src": "VIDEO TUTORIAL GERAKAN/BISINDO_Pendek_009.mp4"
+    "src": "assets/VIDEO TUTORIAL GERAKAN/BISINDO_Pendek_009.mp4"
   },
   {
     "title": "Ramah",
-    "src": "VIDEO TUTORIAL GERAKAN/BISINDO_Ramah_024.mp4"
+    "src": "assets/VIDEO TUTORIAL GERAKAN/BISINDO_Ramah_024.mp4"
   },
   {
     "title": "Sabar",
-    "src": "VIDEO TUTORIAL GERAKAN/BISINDO_Sabar_040.mp4"
+    "src": "assets/VIDEO TUTORIAL GERAKAN/BISINDO_Sabar_040.mp4"
   },
   {
     "title": "Saya",
-    "src": "VIDEO TUTORIAL GERAKAN/BISINDO_Saya_033.mp4"
+    "src": "assets/VIDEO TUTORIAL GERAKAN/BISINDO_Saya_033.mp4"
   },
   {
     "title": "Sedih",
-    "src": "VIDEO TUTORIAL GERAKAN/BISINDO_Sedih_041.mp4"
+    "src": "assets/VIDEO TUTORIAL GERAKAN/BISINDO_Sedih_041.mp4"
   },
   {
     "title": "Selamat Malam",
-    "src": "VIDEO TUTORIAL GERAKAN/BISINDO_Selamat Malam_004.mp4"
+    "src": "assets/VIDEO TUTORIAL GERAKAN/BISINDO_Selamat Malam_004.mp4"
   },
   {
     "title": "Selamat Pagi",
-    "src": "VIDEO TUTORIAL GERAKAN/BISINDO_Selamat Pagi_047.mp4"
+    "src": "assets/VIDEO TUTORIAL GERAKAN/BISINDO_Selamat Pagi_047.mp4"
   },
   {
     "title": "Selamat Siang",
-    "src": "VIDEO TUTORIAL GERAKAN/BISINDO_Selamat Siang_009.mp4"
+    "src": "assets/VIDEO TUTORIAL GERAKAN/BISINDO_Selamat Siang_009.mp4"
   },
   {
     "title": "Selamat Sore",
-    "src": "VIDEO TUTORIAL GERAKAN/BISINDO_Selamat Sore_011.mp4"
+    "src": "assets/VIDEO TUTORIAL GERAKAN/BISINDO_Selamat Sore_011.mp4"
   },
   {
     "title": "Senang",
-    "src": "VIDEO TUTORIAL GERAKAN/BISINDO_Senang_011.mp4"
+    "src": "assets/VIDEO TUTORIAL GERAKAN/BISINDO_Senang_011.mp4"
   },
   {
     "title": "Siapa",
-    "src": "VIDEO TUTORIAL GERAKAN/BISINDO_Siapa_040.mp4"
+    "src": "assets/VIDEO TUTORIAL GERAKAN/BISINDO_Siapa_040.mp4"
   },
   {
     "title": "Terima Kasih",
-    "src": "VIDEO TUTORIAL GERAKAN/BISINDO_Terima Kasih_036.mp4"
+    "src": "assets/VIDEO TUTORIAL GERAKAN/BISINDO_Terima Kasih_036.mp4"
   },
   {
     "title": "Tidur",
-    "src": "VIDEO TUTORIAL GERAKAN/BISINDO_Tidur_040.mp4"
+    "src": "assets/VIDEO TUTORIAL GERAKAN/BISINDO_Tidur_040.mp4"
   },
   {
     "title": "Tinggi",
-    "src": "VIDEO TUTORIAL GERAKAN/BISINDO_Tinggi_010.mp4"
+    "src": "assets/VIDEO TUTORIAL GERAKAN/BISINDO_Tinggi_010.mp4"
   }
 ]
+
