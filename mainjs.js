@@ -14,9 +14,9 @@ const INTERPRETED_TEXT = document.getElementById("interpreted-text");
 
 const startBtn = document.getElementById("start-btn");
 const startDetectBtn = document.getElementById("start-detect-btn");
-const pauseDetectBtn = document.getElementById("pause-detect-btn"); // Diganti dari 'stop-btn'
+const pauseDetectBtn = document.getElementById("pause-detect-btn");
 const deleteBtn = document.getElementById("delete-btn");
-const stopCameraBtn = document.getElementById("stop-camera-btn"); // Tombol baru
+const stopCameraBtn = document.getElementById("stop-camera-btn");
 const interpretControls = document.getElementById("interpret-controls");
 const interpretBtn = document.getElementById("interpret-btn");
 const clearBtn = document.getElementById("clear-btn");
@@ -65,7 +65,7 @@ function normalizeHand(landmarks, w, h) {
     const nz = pts[i][2];
     flat.push(nx, ny, nz);
   }
-  return flat; // length 63
+  return flat;
 }
 
 function buildFeatFromHands(result, w, h) {
@@ -111,7 +111,7 @@ function buildFeatFromHands(result, w, h) {
 
   const feat = L.concat(R);
   feat.push(presL, presR);
-  return feat; // length 128
+  return feat;
 }
 
 // -------------------------------
@@ -221,7 +221,6 @@ async function sendPredictRequest(seq20x128) {
       CONFIDENCE.innerText = (conf * 100).toFixed(1) + "%";
       PREDICTED_WORD.innerText = word || "-";
 
-      // Tambahkan kata ke dalam daftar jika akurasi > 70% dan kata tidak sama dengan yang terakhir
       if (
         detectedWords.length === 0 ||
         detectedWords[detectedWords.length - 1] !== word
@@ -274,14 +273,14 @@ startBtn.addEventListener("click", async () => {
   await startWebcam();
   startBtn.classList.add("hidden");
   startDetectBtn.classList.remove("hidden");
-  stopCameraBtn.classList.remove("hidden"); // Tampilkan tombol Matikan Kamera
+  stopCameraBtn.classList.remove("hidden");
 });
 
 startDetectBtn.addEventListener("click", () => {
   running = true;
   detectLoop();
   startDetectBtn.classList.add("hidden");
-  pauseDetectBtn.classList.remove("hidden"); // Tampilkan tombol Jeda Deteksi
+  pauseDetectBtn.classList.remove("hidden");
   deleteBtn.classList.remove("hidden");
 });
 
@@ -301,12 +300,10 @@ deleteBtn.addEventListener("click", () => {
     detectedWords.length > 0 ? detectedWords.join(" ") : "-";
 });
 
-// Kalimat button
 interpretBtn.addEventListener("click", async () => {
   await requestSentence();
 });
 
-// Clear button
 clearBtn.addEventListener("click", () => {
   detectedWords = [];
   frameBuffer = [];
@@ -319,3 +316,84 @@ clearBtn.addEventListener("click", () => {
 });
 
 console.log("main.js loaded");
+
+// --- Ambil Element dari HTML ---
+const searchInput = document.getElementById("video-search-input");
+const videoGallery = document.getElementById("video-gallery");
+const showMoreBtn = document.getElementById("show-more-btn");
+
+// --- Fungsi utama untuk setup dan menjalankan fitur tutorial ---
+async function setupTutorials() {
+  // --- Konfigurasi dan State ---
+  const VIDEOS_PER_LOAD = 6;
+  let currentlyDisplayedCount = VIDEOS_PER_LOAD;
+  let allVideos = []; // Untuk menyimpan semua data video dari JSON
+  let currentVideoList = []; // Daftar video yang aktif (bisa hasil filter)
+
+  // --- Fungsi untuk menampilkan video ke galeri ---
+  function displayVideos() {
+    const videosToDisplay = currentVideoList.slice(0, currentlyDisplayedCount);
+    videoGallery.innerHTML = ""; // Kosongkan galeri
+
+    if (videosToDisplay.length === 0) {
+      videoGallery.innerHTML = "<p>Video tidak ditemukan.</p>";
+    } else {
+      videosToDisplay.forEach((video) => {
+        const videoItem = document.createElement("div");
+        videoItem.className = "video-item";
+        videoItem.innerHTML = `
+          <video src="${video.src}" controls></video>
+          <p>${video.title}</p>
+        `;
+        videoGallery.appendChild(videoItem);
+      });
+    }
+
+    // Atur visibilitas tombol "Tampilkan Lebih Banyak"
+    if (currentVideoList.length > currentlyDisplayedCount) {
+      showMoreBtn.classList.remove("hidden");
+    } else {
+      showMoreBtn.classList.add("hidden");
+    }
+  }
+
+  // --- Event listener untuk search bar ---
+  searchInput.addEventListener("input", (e) => {
+    const searchTerm = e.target.value.toLowerCase();
+    currentlyDisplayedCount = VIDEOS_PER_LOAD; // Reset hitungan
+    currentVideoList = allVideos.filter((video) =>
+      video.title.toLowerCase().includes(searchTerm)
+    );
+    displayVideos();
+  });
+
+  // --- Event listener untuk tombol "Tampilkan Lebih Banyak" ---
+  showMoreBtn.addEventListener("click", () => {
+    currentlyDisplayedCount += VIDEOS_PER_LOAD;
+    displayVideos();
+  });
+
+  // --- Mulai proses: Ambil data dari JSON ---
+  try {
+    // Baris kode BARU
+    const response = await fetch("./Video_Tutorial.json");
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    allVideos = await response.json();
+    currentVideoList = allVideos; // Set daftar video awal
+    displayVideos(); // Tampilkan video untuk pertama kali
+  } catch (error) {
+    console.error("Gagal memuat atau parsing video.json:", error);
+    videoGallery.innerHTML =
+      "<p style='color: red;'>Maaf, gagal memuat daftar video.</p>";
+  }
+}
+
+// --- Jalankan fungsi setup setelah halaman dimuat ---
+document.addEventListener("DOMContentLoaded", () => {
+  // Pastikan elemen #video-gallery ada sebelum menjalankan setup
+  if (document.getElementById("video-gallery")) {
+    setupTutorials();
+  }
+});
