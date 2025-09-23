@@ -160,6 +160,82 @@ button:hover {
   transform: translateY(-2px);
 }
 
+/* --- Style untuk Video Tutorial --- */
+.tutorial-container {
+  width: 900px;
+  margin-top: 30px;
+  margin-bottom: 30px; /* Menambah jarak di bawah */
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.tutorial-container h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #34495e;
+}
+
+.search-container {
+  margin-bottom: 25px;
+}
+
+#video-search-input {
+  width: 50%;
+  padding: 12px;
+  font-size: 1em;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+}
+
+#video-search-input:focus {
+  outline: none;
+  border-color: #dc143c;
+}
+
+.video-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  text-align: left;
+}
+
+.video-item {
+  background-color: #f7f9fc;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.video-item:hover {
+  transform: translateY(-5px);
+}
+
+.video-item video {
+  width: 100%;
+  height: auto;
+  display: block;
+  background-color: #000;
+}
+
+.video-item p {
+  margin: 0;
+  padding: 12px;
+  font-weight: bold;
+  color: #34495e;
+  text-align: center;
+}
+
+#show-more-btn {
+  margin-top: 25px;
+  width: auto; /* Agar lebar tombol sesuai kontennya */
+  padding: 12px 30px; /* Sedikit lebih lebar dari tombol lain */
+}
+
 /* --- */
 
 /* Responsive design untuk perangkat seluler */
@@ -218,5 +294,18 @@ button:hover {
     width: 100%;
     padding: 15px;
     font-size: 1em;
+  }
+  /* --- Style Responsif untuk Video Tutorial --- */
+  .tutorial-container {
+    width: 90%;
+    margin-top: 20px;
+  }
+
+  #video-search-input {
+    width: 90%;
+  }
+
+  .video-gallery-grid {
+    grid-template-columns: 1fr; /* Cukup satu kolom di mobile */
   }
 }
