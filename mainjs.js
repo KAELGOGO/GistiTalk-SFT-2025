@@ -327,13 +327,13 @@ async function setupTutorials() {
   // --- Konfigurasi dan State ---
   const VIDEOS_PER_LOAD = 6;
   let currentlyDisplayedCount = VIDEOS_PER_LOAD;
-  let allVideos = []; // Untuk menyimpan semua data video dari JSON
-  let currentVideoList = []; // Daftar video yang aktif (bisa hasil filter)
+  let allVideos = [];
+  let currentVideoList = [];
 
   // --- Fungsi untuk menampilkan video ke galeri ---
   function displayVideos() {
     const videosToDisplay = currentVideoList.slice(0, currentlyDisplayedCount);
-    videoGallery.innerHTML = ""; // Kosongkan galeri
+    videoGallery.innerHTML = "";
 
     if (videosToDisplay.length === 0) {
       videoGallery.innerHTML = "<p>Video tidak ditemukan.</p>";
@@ -360,7 +360,7 @@ async function setupTutorials() {
   // --- Event listener untuk search bar ---
   searchInput.addEventListener("input", (e) => {
     const searchTerm = e.target.value.toLowerCase();
-    currentlyDisplayedCount = VIDEOS_PER_LOAD; // Reset hitungan
+    currentlyDisplayedCount = VIDEOS_PER_LOAD;
     currentVideoList = allVideos.filter((video) =>
       video.title.toLowerCase().includes(searchTerm)
     );
@@ -381,8 +381,8 @@ async function setupTutorials() {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     allVideos = await response.json();
-    currentVideoList = allVideos; // Set daftar video awal
-    displayVideos(); // Tampilkan video untuk pertama kali
+    currentVideoList = allVideos;
+    displayVideos();
   } catch (error) {
     console.error("Gagal memuat atau parsing video.json:", error);
     videoGallery.innerHTML =
@@ -392,7 +392,6 @@ async function setupTutorials() {
 
 // --- Jalankan fungsi setup setelah halaman dimuat ---
 document.addEventListener("DOMContentLoaded", () => {
-  // Pastikan elemen #video-gallery ada sebelum menjalankan setup
   if (document.getElementById("video-gallery")) {
     setupTutorials();
   }
