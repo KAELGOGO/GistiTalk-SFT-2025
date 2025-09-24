@@ -54,11 +54,66 @@ h1 {
   height: 100%;
   display: block;
   object-fit: cover;
-  transform: scaleX(-1); /* Pastikan tampilan tidak cermin */
+  transform: scaleX(-1);
 }
 
 .hidden {
   display: none;
+}
+
+.camera-and-hint-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  width: 900px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+#hint-box {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 240px;
+  height: 430px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+#hint-box h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #34495e;
+  text-align: center;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 10px;
+}
+
+#hint-box p {
+  margin-top: 0;
+  font-size: 0.9em;
+  color: #555;
+  text-align: center;
+}
+
+#hint-box ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+#hint-box li {
+  background-color: #f7f9fc;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 8px;
+  text-align: center;
+  font-weight: 500;
+  color: #2c3e50;
 }
 
 .translation-grid-container {
@@ -160,11 +215,10 @@ button:hover {
   transform: translateY(-2px);
 }
 
-/* --- Style untuk Video Tutorial --- */
 .tutorial-container {
   width: 900px;
   margin-top: 30px;
-  margin-bottom: 30px; /* Menambah jarak di bawah */
+  margin-bottom: 30px;
   background-color: #ffffff;
   padding: 25px;
   border-radius: 10px;
@@ -232,15 +286,11 @@ button:hover {
 
 #show-more-btn {
   margin-top: 25px;
-  width: auto; /* Agar lebar tombol sesuai kontennya */
-  padding: 12px 30px; /* Sedikit lebih lebar dari tombol lain */
+  width: auto;
+  padding: 12px 30px;
 }
 
-/* --- */
-
-/* Responsive design untuk perangkat seluler */
 @media (max-width: 768px) {
-  /* Mengatur ulang tata letak dan ukuran font untuk layar yang lebih kecil */
   .main-content-container {
     width: 90%;
     margin: 20px auto;
@@ -252,7 +302,6 @@ button:hover {
     border: none;
   }
 
-  /* Mengubah layout grid menjadi satu kolom */
   .translation-grid-container {
     display: flex;
     flex-direction: column;
@@ -275,7 +324,6 @@ button:hover {
     gap: 10px;
   }
 
-  /* Mengatur ulang kontainer tombol */
   #all-buttons-container {
     flex-direction: column;
     width: 100%;
@@ -295,7 +343,7 @@ button:hover {
     padding: 15px;
     font-size: 1em;
   }
-  /* --- Style Responsif untuk Video Tutorial --- */
+
   .tutorial-container {
     width: 90%;
     margin-top: 20px;
@@ -306,6 +354,18 @@ button:hover {
   }
 
   .video-gallery-grid {
-    grid-template-columns: 1fr; /* Cukup satu kolom di mobile */
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .camera-and-hint-wrapper {
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+  }
+
+  #hint-box {
+    width: 100%;
+    height: auto;
+    max-height: 250px;
   }
 }
