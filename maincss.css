@@ -16,7 +16,7 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #dc143c;
+  background-color: #9f1211;
   color: white;
   text-align: center;
   padding: 15px 0;
@@ -206,7 +206,7 @@ button {
   border: none;
   border-radius: 8px;
   color: white;
-  background-color: #dc143c;
+  background-color: #9f1211;
   transition: background-color 0.3s ease, transform 0.1s ease;
 }
 
@@ -247,7 +247,7 @@ button:hover {
 
 #video-search-input:focus {
   outline: none;
-  border-color: #dc143c;
+  border-color: #9f1211;
 }
 
 .video-gallery-grid {
