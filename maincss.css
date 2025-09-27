@@ -17,7 +17,7 @@ header {
   left: 0;
   width: 100%;
   background-color: #9f1211;
-  color: white;
+  color: #f2f2f2;
   text-align: center;
   padding: 15px 0;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -71,7 +71,7 @@ h1 {
 }
 
 #hint-box {
-  background-color: white;
+  background-color: #f2f2f2;
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -121,7 +121,7 @@ h1 {
   grid-template-columns: 1fr 1fr;
   gap: 20px;
   width: 900px;
-  background-color: white;
+  background-color: #f2f2f2;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
@@ -205,7 +205,7 @@ button {
   cursor: pointer;
   border: none;
   border-radius: 8px;
-  color: white;
+  color: #f2f2f2;
   background-color: #9f1211;
   transition: background-color 0.3s ease, transform 0.1s ease;
 }
@@ -369,3 +369,4 @@ button:hover {
     max-height: 250px;
   }
 }
+
