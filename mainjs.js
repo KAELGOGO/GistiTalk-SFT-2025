@@ -26,8 +26,8 @@ const clearBtn = document.getElementById("clear-btn");
 const SEQ_LEN = 20;
 const CONF_THRESHOLD = 0.7;
 
-const PREDICT_API = "https://blaziooon-kygb-sft.hf.space/predict";
-const SENTENCE_API = "https://blaziooon-kygb-sft.hf.space/sentence";
+const PREDICT_API = "https://blaziooon-sft2025.hf.space/predict";
+const SENTENCE_API = "https://blaziooon-sft2025.hf.space/sentence";
 
 let handLandmarker = null;
 let running = false;
